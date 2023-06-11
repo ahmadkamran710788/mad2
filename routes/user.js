@@ -4,15 +4,14 @@ var router = express.Router();
 
  
 router.post('/login', function(req, res, next) {
-  UserModel.findOne(req.body).then(data=>{
+  UserModel.findOne({username:req.body.username,password:req.body.password}).then(data=>{
     if(data)res.json({loggedin:true,user:data})
     else res.json({loggedin:false})
     }
     )
 });
 router.post('/signUp', function(req, res, next) {
-  UserModel.create(req.body).then(data=>{
-   console.log(req.body)
+  UserModel.create({username:req.body.username,password:req.body.password}).then(data=>{
     if(data)res.json({added:true})
     else res.json({added:false})
     }
