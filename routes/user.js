@@ -3,7 +3,7 @@ const UserModel = require('../Models/UserModel');
 var router = express.Router();
 
  
-router.post('/login', function(req, res, next) {
+router.post('/login1', function(req, res, next) {
   UserModel.findOne({username:req.body.username,password:req.body.password}).then(data=>{
     if(data)res.json({loggedin:true,user:data})
     else res.json({loggedin:false})
