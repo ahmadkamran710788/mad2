@@ -4,7 +4,7 @@ const UserModel = require('../Models/UserModel');
 var router = express.Router();
 
 /* GET users listing. */
-router.patch('/:id/add', function(req, res, next) {
+router.post('/:id/add', function(req, res, next) {
   QuestionModel.create(req.body).then(data=>
     {
       UserModel.findOneAndUpdate(req.params.id,{$push: { questions: data._id }}).
@@ -22,7 +22,7 @@ router.get('/:question', function(req, res, next) {
   )
 
 });
-router.post('/:questionid/answer', function(req, res, next) {
+router.patch('/:questionid/answer', function(req, res, next) {
   QuestionModel.findByIdAndUpdate(req.params.questionid,{$push:{answers:req.body}}).then(data=>res.json({added:true}))
 
 });
