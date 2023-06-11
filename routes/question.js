@@ -4,7 +4,7 @@ const UserModel = require('../Models/UserModel');
 var router = express.Router();
 
 /* GET users listing. */
-router.post('/:id/add', function(req, res, next) {
+router.patch('/:id/add', function(req, res, next) {
   QuestionModel.create(req.body).then(data=>
     {
       UserModel.findOneAndUpdate(req.params.id,{$push: { questions: data._id }}).
