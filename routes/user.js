@@ -5,7 +5,7 @@ var router = express.Router();
  
 router.post('/login', function(req, res, next) {
   UserModel.findOne(req.body).then(data=>{
-    if(data)res.json({loggedin:true,userId:data._id})
+    if(data)res.json({loggedin:true,user:data})
     else res.json({loggedin:false})
     }
     )
