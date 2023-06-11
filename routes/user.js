@@ -19,7 +19,7 @@ router.post('/signUp', function(req, res, next) {
 });
 router.get('/:id', function(req, res, next) {
   UserModel.findById(req.params.id)
-  .populate('questions')
+  //.populate('questions')
   .then(data=>{
     res.json({user:data})
     }
