@@ -5,7 +5,7 @@ var QuestionSchema = mongoose.Schema({
     description:String,
     code:String,
     tags:[String],
-    answers:[{username:String,email:String,answers:String}]
+    answers:[{username:String,email:String,description:String}]
     
 })
 
