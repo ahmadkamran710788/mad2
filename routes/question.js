@@ -22,7 +22,7 @@ router.get('/:question', function(req, res, next) {
   )
 
 });
-router.patch('/:questionid/answer', function(req, res, next) {
+router.put('/:questionid/answer', function(req, res, next) {
   QuestionModel.findByIdAndUpdate(req.params.questionid,{$push:{answers:req.body}}).then(data=>res.json({added:true}))
 
 });
