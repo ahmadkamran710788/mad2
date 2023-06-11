@@ -12,6 +12,7 @@ router.post('/login', function(req, res, next) {
 });
 router.post('/signUp', function(req, res, next) {
   UserModel.create(req.body).then(data=>{
+   console.log(req.body)
     if(data)res.json({added:true})
     else res.json({added:false})
     }
