@@ -1,0 +1,29 @@
+var express = require('express');
+const UserModel = require('../Models/UserModel');
+var router = express.Router();
+
+ 
+router.post('/login', function(req, res, next) {
+  UserModel.findOne(req.body).then(data=>{
+    if(data)res.json({loggedin:true,userId:data._id})
+    else res.json({loggedin:false})
+    }
+    )
+});
+router.post('/signUp', function(req, res, next) {
+  UserModel.create(req.body).then(data=>{
+    if(data)res.json({added:true})
+    else res.json({added:false})
+    }
+    )
+});
+router.get('/:id', function(req, res, next) {
+  UserModel.findById(req.params.id)
+  .populate('questions')
+  .then(data=>{
+    res.json({user:data})
+    }
+    )
+});
+
+module.exports = router;
