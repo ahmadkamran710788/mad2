@@ -13,7 +13,7 @@ router.post('/:id/add', function(req, res, next) {
 });
 router.get('/', function(req, res, next) {
   QuestionModel.find({}).then(data=>
-      res.json({questions:questions})
+      res.json({questions:data})
     )
 });
 router.get('/:question', function(req, res, next) {
