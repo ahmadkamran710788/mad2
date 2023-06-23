@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
     )
 });
 router.get('/:question', function(req, res, next) {
-  QuestionModel.find({$or [{"description": { $regex: '.*' + req.params.question + '.*' } },{ "title": { $regex: '.*' + req.params.question + '.*' }}]).exec().then(
+  QuestionModel.find({$or : [{"description": { $regex: '.*' + req.params.question + '.*' } },{ "title": { $regex: '.*' + req.params.question + '.*' }}]).exec().then(
     data=>res.json({questions:data})
   )
 
