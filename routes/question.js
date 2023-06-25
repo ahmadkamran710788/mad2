@@ -11,7 +11,7 @@ router.post('/:id/add', function(req, res, next) {
       then(data1=>{console.log(req.params.id);res.json({'question added':true})})})
 
 });
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   QuestionModel.find({}).sort({createdAt:-1}).then(data=>
       res.json({questions:data})
     )
@@ -19,13 +19,6 @@ router.get('/', function(req, res, next) {
 router.get('/:question', function(req, res, next) {
   QuestionModel.find({$or : [{"description": { $regex: '.*' + req.params.question + '.*' } },{"title": { $regex: '.*' + req.params.question + '.*' } }]}).sort({createdAt:-1}).exec().then(
     data=>res.json({questions:data})
-  )
-
-});
-
-router.delete('/:id', function(req, res, next) {
-  QuestionModel.findByIdAndDelete(req.params.id).then(
-    data=>res.json({deleted:true})
   )
 
 });
