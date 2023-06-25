@@ -7,7 +7,7 @@ var router = express.Router();
 router.post('/:id/add', function(req, res, next) {
   QuestionModel.create(req.body).then(data=>
     {
-      UserModel.findOneAndUpdate(req.params.id,{$push: { questions: data._id }}).
+      UserModel.findByIdAndUpdate(req.params.id,{$push: { questions: data._id }}).
       then(data1=>{console.log(req.params.id);res.json({'question added':true})})})
 
 });
