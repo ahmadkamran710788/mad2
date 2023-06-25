@@ -12,12 +12,12 @@ router.post('/:id/add', function(req, res, next) {
 
 });
 router.get('/', function(req, res, next) {
-  QuestionModel.find({}).sort({createdAt:1}).then(data=>
+  QuestionModel.find({}).sort({createdAt:-1}).then(data=>
       res.json({questions:data})
     )
 });
 router.get('/:question', function(req, res, next) {
-  QuestionModel.find({$or : [{"description": { $regex: '.*' + req.params.question + '.*' } },{"title": { $regex: '.*' + req.params.question + '.*' } }]}).sort({createdAt:1}).exec().then(
+  QuestionModel.find({$or : [{"description": { $regex: '.*' + req.params.question + '.*' } },{"title": { $regex: '.*' + req.params.question + '.*' } }]}).sort({createdAt:-1}).exec().then(
     data=>res.json({questions:data})
   )
 
