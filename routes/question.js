@@ -11,6 +11,13 @@ router.post('/:id/add', function(req, res, next) {
       then(data1=>{console.log(req.params.id);res.json({'question added':true})})})
 
 });
+
+router.delete('/:id', function(req, res,next) {
+  QuestionModel.findByIdAndDelete(req.params.id).then(
+    data=>res.json({"deleted":true})
+  )
+});
+
 router.get('/', function(req, res,next) {
   QuestionModel.find({}).sort({createdAt:-1}).then(data=>
       res.json({questions:data})
