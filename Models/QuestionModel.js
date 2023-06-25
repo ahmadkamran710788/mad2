@@ -6,9 +6,7 @@ var QuestionSchema = mongoose.Schema({
     code:String,
     tags:[String],
     answers:[{username:String,email:String,description:String}]
-    
-},{
-  timestamps: true
+    createdAt:{type:Date,default:Date.now()}   
 })
 
 module.exports = mongoose.model("Question", QuestionSchema);
