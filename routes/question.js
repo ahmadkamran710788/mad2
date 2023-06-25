@@ -24,7 +24,7 @@ router.get('/:question', function(req, res, next) {
 });
 
 router.delete('/:id', function(req, res, next) {
-  QuestionModel.findByIdAndDelete(req.params.id)then(
+  QuestionModel.findByIdAndDelete(req.params.id).then(
     data=>res.json({deleted:true})
   )
 
