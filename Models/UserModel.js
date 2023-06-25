@@ -7,7 +7,7 @@ var userSchema = mongoose.Schema({
     reputation:String,
     email:String,
     password:String,
-    location:String,
+    location:{type:String,default:"Pakistan"},
     memberSince:{type:String,default:Date().toLocaleString().substring(4,15)},
 
 })
