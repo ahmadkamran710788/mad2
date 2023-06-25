@@ -7,6 +7,8 @@ var QuestionSchema = mongoose.Schema({
     tags:[String],
     answers:[{username:String,email:String,description:String}]
     
+},{
+  timestamps: true
 })
 
 module.exports = mongoose.model("Question", QuestionSchema);
