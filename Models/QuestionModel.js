@@ -5,8 +5,7 @@ var QuestionSchema = mongoose.Schema({
     description:String,
     code:String,
     tags:[String],
-    answers:[{username:String,email:String,description:String}],
-    createdAt:{type:Date,default:Date.now()}   
+    answers:[{username:String,email:String,description:String}] 
 })
 
 module.exports = mongoose.model("Question", QuestionSchema);
