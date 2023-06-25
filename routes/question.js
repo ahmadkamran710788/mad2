@@ -8,7 +8,7 @@ router.post('/:id/add', function(req, res, next) {
   QuestionModel.create(req.body).then(data=>
     {
       UserModel.findOneAndUpdate(req.params.id,{$push: { questions: data._id }}).
-      then(data1=>{console.log(req.params.id);res.json({'added':true})})})
+      then(data1=>{console.log(req.params.id);res.json({'question added':true})})})
 
 });
 router.get('/', function(req, res, next) {
