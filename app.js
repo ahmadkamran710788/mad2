@@ -7,7 +7,7 @@ var questionRouter = require('./routes/question');
 
 var app = express();
 var mongoDB = 'mongodb+srv://ahmadkamran710788:h71lLNpMHmxQxaHM@cluster0.ieeoda4.mongodb.net/?retryWrites=true&w=majority';
-mongoose.connect(mongoDB);
+mongoose.connect(mongoDB, { useNewUrlParser: true });
 
 
 app.use(express.json());
