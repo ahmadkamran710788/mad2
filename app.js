@@ -17,6 +17,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/user', userRouter);
 app.use('/question', questionRouter);
+app.get('/',(req,res)=>res.json("my api is working"))
+
+app.listen(3000,()=>{
+    console.log("we are live")
+})
 
 
 module.exports = app;
