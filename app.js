@@ -6,8 +6,8 @@ var userRouter = require('./routes/user');
 var questionRouter = require('./routes/question');
 
 var app = express();
-var mongoDB = 'mongodb+srv://sabih:8QM7ybG4jve7Ivjw@cluster0.gm4it89.mongodb.net/?retryWrites=true&w=majority';
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+var mongoDB = 'mongodb+srv://ahmadkamran710788:h71lLNpMHmxQxaHM@cluster0.ieeoda4.mongodb.net/?retryWrites=true&w=majority';
+mongoose.connect(mongoDB);
 
 
 app.use(express.json());
